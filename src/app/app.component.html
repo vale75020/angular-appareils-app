@@ -4,7 +4,8 @@
       <h2>Mes Appareils</h2>
       <p>Last Update : {{ lastUpdate | async | date: "short" | uppercase }}</p>
       <ul class="list-group">
-        <app-appareil *ngFor="let appareil of appareils"
+        <app-appareil *ngFor="let appareil of appareils; let i = index"
+        [indexOfAppareil] = "i"
         [appareilName]="appareil.name"
         [appareilStatus]="appareil.status"></app-appareil>
         <!-- <app-appareil [appareilName]="appareilOne" [appareilStatus]="appareil1"></app-appareil>
@@ -12,9 +13,14 @@
         <app-appareil [appareilName]="appareilThree" [appareilStatus]="appareil3"></app-appareil> -->
       </ul>
       <button class="btn btn-success"
-       [disabled]="!isAuth"
+      [disabled]="!isAuth"
        (click)="onOn()">
         all appareils ON
+      </button>
+      <button class="btn btn-danger"
+       [disabled]="!isAuth"
+       (click)="onOff()">
+        all appareils OFF
       </button>
     </div>
   </div>
