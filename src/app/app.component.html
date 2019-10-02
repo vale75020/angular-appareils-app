@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Mes Appareils</h2>
+      <ul class="list-group">
+        <app-appareil></app-appareil>
+        <app-appareil></app-appareil>
+        <app-appareil></app-appareil>
+      </ul>
+      <button class="btn btn-success"
+       [disabled]="!isAuth"
+       (click)="onOn()">
+        all appareils ON
+      </button>
+    </div>
+  </div>
+</div>
